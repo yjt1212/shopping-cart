@@ -30,7 +30,6 @@ export default{
       ])
   },
   methods: {
-    // 映射事件,把事件映射到 store 的 actions 里面
     ...mapActions([
       'clearAllGoods'
       ])
