@@ -1,6 +1,3 @@
-// 这就是 store 对象
-
-// 初始化数据，商品列表
 const state = {
 	// 所有商品
 	shopList: [{
@@ -44,7 +41,7 @@ const getters = {
 		})
 	},
 
-	// 计算总数,state 必须要传入
+	// 计算总数
 	totalNum: ( state, getters ) => {
 		let _total = 0
 		getters.cartProducts.forEach( n => {
@@ -63,14 +60,10 @@ const getters = {
 	}
 }
 
-// 只有 actions 才能修改 mutations
 const actions = {
 	// 添加到购物车
-	// 固定写法,死记硬背 ({commit}, n)
 	addToCart({commit}, n){
 		// console.log( n )
-		// add 是函数名，具体逻辑在 mutations 中
-		// 并传值
 		commit('add', {
 			id: n.id
 		})
@@ -81,14 +74,13 @@ const actions = {
 		commit('delFn', n)
 	},
 
-	// 情况购物车
+	// 清空购物车
 	clearAllGoods({commit}){
 		commit('clearAll')
 	}
 }
 
 const mutations = {
-	// 添加到购物车,id是形参，接收的就是传入的值
 	add( state, {id} ){
 		// console.log( id )
 		let _n = state.added.find( n => n.id == id )
@@ -106,7 +98,7 @@ const mutations = {
 		}
 	},
 
-	// 删除商品,_goods形参，用来接收要删除的商品
+	// 删除商品
 	delFn( state, _goods ){
 		state.added.forEach((n, i) => {
 			if(n.id == _goods.id){
@@ -115,7 +107,7 @@ const mutations = {
 		})
 	},
 
-	// 情况购物车
+	// 清空购物车
 	clearAll(state){
 		state.added = []
 	}
