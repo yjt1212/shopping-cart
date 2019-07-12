@@ -27,8 +27,6 @@
 </template>
 
 <script>
-// 引入 mapGetters
-// mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性
 import { mapGetters, mapActions } from 'vuex'
 
 export default{
@@ -43,7 +41,6 @@ export default{
 			])
 	},
 	methods: {
-		// 映射事件,把事件映射到 store 的 actions 里面
 		...mapActions([
 			'addToCart'
 			])
